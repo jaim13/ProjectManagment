@@ -5,7 +5,7 @@ const Header = () => {
 
   return (
     <nav
-      className="bg-white bg-opacity-30 backdrop-blur-lg p-4 shadow-md fixed w-full z-10"
+      className="bg-white bg-opacity-30 backdrop-blur-lg p-4 shadow-md fixed w-full z-50" 
       style={{
         fontFamily:
           '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',

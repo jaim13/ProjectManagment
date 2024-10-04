@@ -1,6 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Button = () => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/login");
+  };
   return (
     <div className="relative group mx-auto mt-4">
       <div className="relative w-64 h-14 opacity-90 overflow-hidden rounded-xl bg-black z-10 mx-auto">
@@ -8,6 +14,7 @@ const Button = () => {
 
         <div className="absolute flex items-center justify-center text-white z-[1] opacity-90 rounded-2xl inset-0.5 bg-black">
           <button
+            onClick={handleClick}
             name="text"
             className="font-semibold text-lg h-full opacity-90 w-full px-16 py-3 rounded-xl bg-black"
           >
