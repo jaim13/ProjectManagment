@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Spline from "@splinetool/react-spline";
 import Button from "../components/ButtonDashboard.jsx";
 import Card from "../components/CardLanding.jsx";
+import Navbar from '../components/Header';
 
 const Landing = () => {
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
@@ -39,6 +40,7 @@ const Landing = () => {
   };
   return (
     <div className="overflow-x-hidden">
+       <Navbar/>
       <section
         className="min-h-screen bg-no-repeat bg-cover bg-center flex flex-col items-center justify-center p-4"
         style={{

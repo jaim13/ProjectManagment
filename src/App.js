@@ -1,17 +1,17 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Header';
 import Landing from './pages/Landing';
-import Login from './pages/Login'; // Import your Login component
+import Login from './pages/Login';
+import Clothes from './pages/Clothes'
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <Navbar />
         <Routes>
           <Route path="/" element={<Landing />} /> {/* Landing page */}
           <Route path="/login" element={<Login />} /> {/* Login page */}
+          <Route path="/Clothes" element={<Clothes />} />
         </Routes>
       </div>
     </Router>

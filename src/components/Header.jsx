@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,51 +18,51 @@ const Header = () => {
           <img src="/imgs/Logo/logofondo.svg" alt="Logo" className="h-16 w-auto" />
         </div>
 
-        {/* Menu for Desktop */}
+        {/* Menú para escritorio */}
         <div className="hidden md:flex space-x-4">
-          <a href="#features" className=" text-black hover:text-blue-500">
-            Features
-          </a>
-          <a href="#pricing" className=" text-black hover:text-blue-500">
-            Pricing
-          </a>
-          <a href="#about" className=" text-black hover:text-blue-500">
-            About
-          </a>
-          <a href="#contact" className=" text-black hover:text-blue-500">
+          <Link to="/Clothes" className="text-black hover:text-blue-500">
+            Clothes
+          </Link>
+          <Link to="#pricing" className="text-black hover:text-blue-500">
+            Suplements
+          </Link>
+          <Link to="/login" className="text-black hover:text-blue-500">
+            Log in
+          </Link>
+          <Link to="#contact" className="text-black hover:text-blue-500">
             Contact
-          </a>
+          </Link>
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* Botón para menú móvil */}
         <div className="md:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className=" text-black text-2xl"
+            className="text-black text-2xl"
           >
             {isOpen ? "X" : "☰"}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Menú móvil */}
       {isOpen && (
         <div className="md:hidden mt-2">
-          <a
-            href="#features"
+          <Link
+            to="/Clothes"
             className="block text-black hover:bg-blue-100 p-2"
           >
-            Features
-          </a>
-          <a href="#pricing" className="block text-black hover:bg-blue-100 p-2">
+            Clothes
+          </Link>
+          <Link to="#pricing" className="block text-black hover:bg-blue-100 p-2">
             Pricing
-          </a>
-          <a href="#about" className="block text-black hover:bg-blue-100 p-2">
+          </Link>
+          <Link to="#about" className="block text-black hover:bg-blue-100 p-2">
             About
-          </a>
-          <a href="#contact" className="block text-black hover:bg-blue-100 p-2">
+          </Link>
+          <Link to="#contact" className="block text-black hover:bg-blue-100 p-2">
             Contact
-          </a>
+          </Link>
         </div>
       )}
     </nav>
