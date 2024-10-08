@@ -1,20 +1,20 @@
-import React from 'react';
-import Header from '../components/Header'
+import React from "react";
+import Header from "../components/Header";
+import NavElements from "../components/NavElements";
 const Clothes = () => {
-    console.log('Renderizando componente Clothes');
-    return (
-        <>
-        <Header/>
-        <div style={{paddingTop:"100px"}}>
-        <h1>Ropa</h1>
+  console.log("Renderizando componente Clothes");
+  const navItems = ["T-Shirts and Tops", "Hoodies", "Tank Tops", "Underwear"];
+  console.log("Enviando navItems a NavElements:", navItems); // Verifica que el array se imprima correctamente
+
+  return (
+    <>
+      <Header />
+      <div style={{ paddingTop: "100px" }}>
+        <NavElements items={navItems} />
         <p>Aquí encontrarás nuestra colección de ropa.</p>
-        <ul>
-          <li>Camisetas</li>
-          <li>Pantalones</li>
-          <li>Chaquetas</li>
-        </ul>
-        </div>
-      </>
-    );
-  }
+      </div>
+    </>
+  );
+};
+
 export default Clothes;
