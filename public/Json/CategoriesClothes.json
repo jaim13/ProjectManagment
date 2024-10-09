@@ -1,0 +1,41 @@
+[
+    {
+      "title": "YLA",
+      "subcategories": [
+        {
+          "title": "Men",
+          "items": [
+            { "name": "Shorts", "link": "#" },
+            { "name": "T-Shirts", "link": "#" }
+          ]
+        },
+        {
+          "title": "Women",
+          "items": [
+            { "name": "Leggings", "link": "#" },
+            { "name": "Tops", "link": "#" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "GymShark",
+      "subcategories": [
+        {
+          "title": "Men",
+          "items": [
+            { "name": "Joggers", "link": "#" },
+            { "name": "Tank Tops", "link": "#" }
+          ]
+        },
+        {
+          "title": "Women",
+          "items": [
+            { "name": "Sports Bras", "link": "#" },
+            { "name": "Leggings", "link": "#" }
+          ]
+        }
+      ]
+    }
+  ]
+  
