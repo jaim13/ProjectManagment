@@ -5,7 +5,7 @@
         {
           "title": "Men",
           "items": [
-            { "name": "Shorts", "link": "#" },
+            { "name": "All items", "link": "/Clothes" }, 
             { "name": "T-Shirts", "link": "#" }
           ]
         },
@@ -24,7 +24,7 @@
         {
           "title": "Men",
           "items": [
-            { "name": "Joggers", "link": "#" },
+            { "name": "All items", "link": "/Clothes" }, 
             { "name": "Tank Tops", "link": "#" }
           ]
         },

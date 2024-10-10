@@ -1,16 +1,33 @@
-import React from "react";
+// Clothes.js
+import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
+import Card from "../components/CardContainerProducts"; // Asegúrate de tener el componente Card importado
+import scrapeProducts from "../DataScrapping/GymSharkScrapping"; // Ajusta la ruta según tu estructura de carpetas
+
 const Clothes = () => {
-  console.log("Renderizando componente Clothes");
-  const navItems = ["T-Shirts and Tops", "Hoodies", "Tank Tops", "Underwear"];
-  console.log("Enviando navItems a NavElements:", navItems); // Verifica que el array se imprima correctamente
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const scrapedProducts = await scrapeProducts(); // Llama a la función de scraping
+      setProducts(scrapedProducts);
+    };
+
+    fetchProducts(); // Llama a la función para obtener los productos
+  }, []);
 
   return (
     <>
       <Header />
-      <div style={{ paddingTop: "100px" }}>
-        
-        <p className="pt-15">Aquí encontrarás nuestra colección de ropa.</p>
+      <div className="flex flex-wrap justify-center">
+        {products.map((product, index) => (
+          <Card
+            key={index}
+            image={product.image}
+            title={product.title}
+            link={product.link}
+          />
+        ))}
       </div>
     </>
   );
