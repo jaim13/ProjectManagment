@@ -1,41 +1,40 @@
 [
-    {
-      "title": "YLA",
-      "subcategories": [
-        {
-          "title": "Men",
-          "items": [
-            { "name": "All items", "link": "/Clothes" }, 
-            { "name": "T-Shirts", "link": "#" }
-          ]
-        },
-        {
-          "title": "Women",
-          "items": [
-            { "name": "Leggings", "link": "#" },
-            { "name": "Tops", "link": "#" }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "GymShark",
-      "subcategories": [
-        {
-          "title": "Men",
-          "items": [
-            { "name": "All items", "link": "/Clothes" }, 
-            { "name": "Tank Tops", "link": "#" }
-          ]
-        },
-        {
-          "title": "Women",
-          "items": [
-            { "name": "Sports Bras", "link": "#" },
-            { "name": "Leggings", "link": "#" }
-          ]
-        }
-      ]
-    }
-  ]
-  
+  {
+    "title": "YLA",
+    "subcategories": [
+      {
+        "title": "Men",
+        "items": [
+          { "name": "All items", "link": "/Clothes?brand=YLA&category=men&item=all" },
+          { "name": "T-Shirts", "link": "/Clothes?brand=YLA&category=men&item=tshirts" }
+        ]
+      },
+      {
+        "title": "Women",
+        "items": [
+          { "name": "Leggings", "link": "/Clothes?brand=YLA&category=women&item=leggings" },
+          { "name": "Tops", "link": "/Clothes?brand=YLA&category=women&item=tops" }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "GymShark",
+    "subcategories": [
+      {
+        "title": "Men",
+        "items": [
+          { "name": "All items", "link": "/Clothes?brand=GymShark&category=men&item=all" },
+          { "name": "Tank Tops", "link": "/Clothes?brand=GymShark&category=men&item=tanktops" }
+        ]
+      },
+      {
+        "title": "Women",
+        "items": [
+          { "name": "Sports Bras", "link": "/Clothes?brand=GymShark&category=women&item=sportsbras" },
+          { "name": "Leggings", "link": "/Clothes?brand=GymShark&category=women&item=leggings" }
+        ]
+      }
+    ]
+  }
+]
