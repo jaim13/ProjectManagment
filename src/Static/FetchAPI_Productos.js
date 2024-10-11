@@ -15,7 +15,7 @@ const fetchProducts = async (brand, category, item) => {
         }
     
         const response = await fetch(apiUrl);
-        console.log("Response status:", response.status); /
+        console.log("Response status:", response.status); 
         console.log("Content-Type:", response.headers.get('content-type')); // Verifica el tipo de contenido
 
         // Verifica si la respuesta es JSON antes de intentar convertirla
