@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom"; // Hook para obtener la URL
 import Header from "../components/Header";
 import Card from "../components/CardContainerProducts";
-import FetchAPI_Productos from "../Static/FetchAPI_Productos"
+import fetchProducts from "../Static/FetchAPI_Productos"; // Asegúrate de importar correctamente
 
 const Clothes = () => {
   const [products, setProducts] = useState([]);
@@ -13,9 +13,12 @@ const Clothes = () => {
   const item = searchParams.get("item");
 
   useEffect(() => {
-    <FetchAPI_Productos className=""></FetchAPI_Productos>
+    const loadProducts = async () => {
+      const filteredProducts = await fetchProducts(brand, category, item); // Pasa los parámetros
+      setProducts(filteredProducts); // Actualiza el estado con los productos obtenidos
+    };
 
-    fetchProducts(); // Llama a la función para obtener los productos filtrados
+    loadProducts(); // Llama a la función para obtener los productos filtrados
   }, [brand, category, item]); // Se ejecuta cada vez que los parámetros cambien
 
   return (
@@ -25,14 +28,21 @@ const Clothes = () => {
       <br />
       <br />
       <div className="flex flex-wrap justify-center">
-        {products.map((product, index) => (
-          <Card
-            key={index}
-            image={product.image}
-            title={product.title}
-            link={product.link}
-          />
-        ))}
+        {/* Si no hay productos, mostrar mensaje */}
+        {products.length === 0 ? (
+          <div className="text-center text-gray-500">
+            No products available for the selected filters.
+          </div>
+        ) : (
+          products.map((product, index) => (
+            <Card
+              key={index}
+              image={product.image}
+              title={product.title}
+              link={product.link}
+            />
+          ))
+        )}
       </div>
     </>
   );
