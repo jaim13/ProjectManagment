@@ -6,6 +6,9 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [categories, setCategories] = useState([]);
+  const [viewState, setViewState] = useState("initial"); // 'initial', 'brands', 'subcategories', 'items'
+  const [selectedBrand, setSelectedBrand] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
   // Usamos useEffect para cargar el JSON cuando el componente se monta
   useEffect(() => {
@@ -67,9 +70,76 @@ const Header = () => {
       {isOpen && (
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <Link to="/clothes" className="text-gray-700 hover:bg-gray-100 block px-3 py-2 rounded-md text-base font-medium">
-              Clothes
-            </Link>
+            {/* Paso 1: Mostrar Clothes */}
+            {viewState === "initial" && (
+              <button
+                onClick={() => setViewState("brands")}
+                className="text-gray-700 hover:bg-gray-100 block px-3 py-2 rounded-md text-base font-medium"
+              >
+                Clothes
+              </button>
+            )}
+
+            {/* Paso 2: Mostrar Marcas */}
+            {viewState === "brands" && categories.map((brand, index) => (
+              <button
+                key={index}
+                onClick={() => {
+                  setSelectedBrand(brand);
+                  setViewState("subcategories");
+                }}
+                className="text-gray-700 hover:bg-gray-100 block px-6 py-2 rounded-md text-base font-medium"
+              >
+                {brand.title}
+              </button>
+            ))}
+
+            {/* Paso 3: Mostrar Subcategorías */}
+            {viewState === "subcategories" && selectedBrand.subcategories.map((subcategory, index) => (
+              <button
+                key={index}
+                onClick={() => {
+                  setSelectedCategory(subcategory);
+                  setViewState("items");
+                }}
+                className="text-gray-700 hover:bg-gray-100 block px-6 py-2 rounded-md text-base font-medium"
+              >
+                {subcategory.title}
+              </button>
+            ))}
+
+            {/* Paso 4: Mostrar Links de cada Subcategoría */}
+            {viewState === "items" && selectedCategory.items.map((item, index) => (
+              <Link
+                key={index}
+                to={item.link}
+                className="text-gray-700 hover:bg-gray-100 block px-10 py-2 rounded-md text-base font-medium"
+              >
+                {item.name}
+              </Link>
+            ))}
+
+            {/* Botón de regreso */}
+            {viewState !== "initial" && (
+              <button
+                onClick={() => {
+                  if (viewState === "items") {
+                    setViewState("subcategories");
+                  } else if (viewState === "subcategories") {
+                    setViewState("brands");
+                    setSelectedBrand(null);
+                  } else {
+                    setViewState("initial");
+                  }
+                  setSelectedCategory(null);
+                }}
+                className="text-blue-500 hover:underline px-3 py-2 text-base font-medium"
+              >
+                ← Volver
+              </button>
+            )}
+
+            {/* Otros enlaces del menú móvil */}
             <Link to="/supplements" className="text-gray-700 hover:bg-gray-100 block px-3 py-2 rounded-md text-base font-medium">
               Supplements
             </Link>

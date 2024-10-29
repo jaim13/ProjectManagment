@@ -25,7 +25,8 @@
         "title": "Men",
         "items": [
           { "name": "All items", "link": "/Clothes?brand=GymShark&category=men&item=all" },
-          { "name": "Tank Tops", "link": "/Clothes?brand=GymShark&category=men&item=tanktops" }
+          { "name": "Shorts", "link": "/Clothes?brand=GymShark&category=men&item=shorts" },
+          { "name": "T-Shirts", "link": "/Clothes?brand=GymShark&category=men&item=tshirts" }
         ]
       },
       {
