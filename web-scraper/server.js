@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const scrapeProducts = require('./DataScrapping/GymSharkScrapping'); // Ajusta la ruta
+const {gymsharkallproductos,gymsharkshorts, gymsharktshirts} = require('./DataScrapping/GymSharkScrapping'); // Ajusta la ruta
 
 const app = express();
 const PORT = 5000;
@@ -10,7 +10,17 @@ app.use(cors()); // Para permitir peticiones desde tu aplicación React
 // Endpoint para obtener los productos
 app.get('/api/products/gymshark/allitems', async (req, res) => {
     try {
-      const products = await scrapeProducts();
+      const products = await gymsharkallproductos();
+      res.json(products);  // Asegúrate de que 'products' sea un JSON válido
+    } catch (error) {
+      console.error('Error al obtener productos:', error);
+      res.status(500).json({ message: 'Error al obtener productos', error: error.message });
+    }
+  });
+
+  app.get('/api/products/gymshark/shorts', async (req, res) => {
+    try {
+      const products = await gymsharkshorts();
       res.json(products);  // Asegúrate de que 'products' sea un JSON válido
     } catch (error) {
       console.error('Error al obtener productos:', error);
@@ -18,7 +28,15 @@ app.get('/api/products/gymshark/allitems', async (req, res) => {
     }
   });
   
-
+  app.get('/api/products/gymshark/tshirts', async (req, res) => {
+    try {
+      const products = await gymsharktshirts();
+      res.json(products);  // Asegúrate de que 'products' sea un JSON válido
+    } catch (error) {
+      console.error('Error al obtener productos:', error);
+      res.status(500).json({ message: 'Error al obtener productos', error: error.message });
+    }
+  });
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
